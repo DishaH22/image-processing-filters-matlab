@@ -67,3 +67,57 @@ A Gaussian filter smooths the image using a Gaussian distribution where pixels n
 
 Image filtering in MATLAB is performed using:
 
+`B = imfilter(A, h)`
+
+Where:
+
+- **A** = input image
+- **h** = filter matrix
+- **B** = filtered output image
+
+## Results
+
+The filters demonstrate different smoothing behaviours.
+
+Observations:
+
+- Mean filtering reduces noise but blurs edges
+- Median filtering removes salt-and-pepper noise effectively
+- Gaussian filtering produces smooth blur
+- Conservative filtering preserves edges better than simple averaging
+
+## GUI Implementation
+
+A MATLAB GUI was created using **GUIDE**.
+
+Features of the GUI:
+
+- Load an image
+- Apply different filters
+- Display original image
+- Display filtered result
+
+The interface includes:
+- image display axes
+- filter buttons
+- navigation controls
+
+## Applications
+
+Image filtering is widely used in:
+
+- computer vision
+- medical imaging
+- satellite imagery
+- object detection
+- image restoration
+
+## Tools Used
+
+- MATLAB
+- MATLAB GUIDE GUI
+
+## Author
+
+Disha Harwalkar
+
