@@ -1,123 +1,168 @@
-# Image Processing Filters using MATLAB
+# Comparative Analysis of Image Processing Filters using MATLAB
 
-This project demonstrates several spatial filtering techniques used in digital image processing using MATLAB.
-
-The objective is to compare different filters used for:
-- noise reduction
-- image smoothing
-- edge enhancement
+This project presents a comparative study of spatial image filtering techniques implemented in MATLAB. The aim was to analyze how different filters affect image smoothing, noise reduction, and detail preservation, and to demonstrate the results through a simple graphical user interface (GUI).
 
 ## Overview
 
-Image processing converts an image into digital form and applies operations to enhance the image or extract useful information.
+Image processing is used to convert images into digital form and apply operations that improve image quality or extract useful information. In a digital image, each pixel stores an intensity value. In an 8-bit grayscale image, pixel values range from 0 to 255.
 
-A digital image is composed of pixels. In an 8-bit grayscale image, pixel values range from **0 to 255**, representing light intensity.
-
-Filtering techniques are used to:
-
+Filtering is one of the most important operations in image processing. It is widely used to:
 - remove noise
 - smooth images
-- detect edges
-- enhance image features
+- preserve important features
+- enhance edges
+- improve visual quality
+
+## Project Objectives
+
+The objectives of this project were to:
+- study common types of image noise
+- implement multiple image filtering techniques in MATLAB
+- compare filter behaviour for smoothing and noise reduction
+- evaluate which filters preserve image quality more effectively
+- design a MATLAB GUI for interactive filter selection
 
 ## Types of Noise
 
-Common noise in images includes:
-
+Common image noise includes:
 - Gaussian noise
 - Salt and pepper noise
 - Shot noise
 - Quantization noise
 
-Noise is unwanted variation in pixel intensity that degrades image quality.
+Noise introduces unwanted intensity variation in an image and can reduce visual quality and analysis accuracy.
 
 ## Filters Implemented
 
-### Mean Filter
-The mean filter replaces each pixel with the average value of its neighbourhood.
+### 1. Mean Filter
+The mean filter replaces each pixel by the average of the neighbouring pixel values.
 
-Advantages:
-- smooths image
+**Advantages**
+- simple to implement
+- effective for basic smoothing
 - reduces random noise
 
-Disadvantage:
-- blurs edges
+**Limitation**
+- blurs edges and fine image details
 
-### Median Filter
-The median filter replaces each pixel with the median value of neighbouring pixels.
+### 2. Median Filter
+The median filter replaces each pixel by the median value of the local neighbourhood.
 
-Advantages:
-- removes salt-and-pepper noise
-- preserves edges better than mean filter
+**Advantages**
+- effective for salt-and-pepper noise
+- preserves edges better than mean filtering
 
-### Conservative Filter
-The conservative filter limits each pixel value within the minimum and maximum values in its neighbourhood.
+**Limitation**
+- may remove some fine detail
 
-Advantages:
-- preserves edges
-- removes impulse noise
+### 3. Conservative Filter
+The conservative smoothing filter limits a pixel value within the minimum and maximum range of its local neighbourhood.
 
-### Weighted Average Filter
-In this filter the center pixel has greater weight than surrounding pixels.
+**Advantages**
+- reduces impulse noise
+- preserves image details better than average smoothing
+- maintains edges more effectively
 
-### Gaussian Filter
-A Gaussian filter smooths the image using a Gaussian distribution where pixels near the centre have higher influence.
+### 4. Weighted Average Filter
+The weighted average filter gives more importance to the centre pixel than the surrounding pixels.
+
+**Advantages**
+- allows controlled smoothing
+- reduces excessive blur compared to simple averaging
+
+### 5. Gaussian Filter
+The Gaussian filter is a linear smoothing filter based on the Gaussian distribution. Pixels near the centre of the kernel have greater influence.
+
+**Advantages**
+- produces natural smoothing
+- commonly used in preprocessing applications
+
+**Limitation**
+- still softens edges
 
 ## MATLAB Implementation
 
-Image filtering in MATLAB is performed using:
+Filtering was implemented in MATLAB using standard image-processing operations. In general form:
 
 `B = imfilter(A, h)`
 
 Where:
+- `A` is the original image
+- `h` is the filter matrix
+- `B` is the filtered image
 
-- **A** = input image
-- **h** = filter matrix
-- **B** = filtered output image
+The project also included MATLAB code for GUI-based filter application and visualization.
 
-## Results
+## GUI Design
+![GUI Design](images/gui_design.png)
 
-The filters demonstrate different smoothing behaviours.
+A GUI was created in MATLAB using GUIDE. The interface allows the user to:
+- load an image
+- apply different filters
+- view original and filtered outputs
+- interact with filter buttons directly
 
-Observations:
+## Filter Results
 
-- Mean filtering reduces noise but blurs edges
-- Median filtering removes salt-and-pepper noise effectively
-- Gaussian filtering produces smooth blur
-- Conservative filtering preserves edges better than simple averaging
+### Gaussian Filter
+![Gaussian Filter](images/gaussian_filter_result.png)
 
-## GUI Implementation
+### Average Filter
+![Average Filter](images/average_filter_result.png)
 
-A MATLAB GUI was created using **GUIDE**.
+### Median and Mean Filter Results
+![Median and Mean Filter Results](images/median_mean_filter_result.png)
 
-Features of the GUI:
+### Conservative and Mean Filter Discussion
+![Conservative and Mean Filter Discussion](images/conservative_mean_result.png)
 
-- Load an image
-- Apply different filters
-- Display original image
-- Display filtered result
+## Comparative Analysis
 
-The interface includes:
-- image display axes
-- filter buttons
-- navigation controls
+The implemented filters showed different behaviour depending on the type of smoothing and detail preservation required.
+
+- The **mean filter** reduced noise but introduced noticeable blurring.
+- The **median filter** gave better results for noise reduction while preserving edges.
+- The **weighted average filter** allowed smoother blurring with centre-weight emphasis.
+- The **Gaussian filter** produced visually smooth results and is useful for preprocessing.
+- The **conservative filter** preserved important features more effectively than basic averaging.
+
+## Key Result
+
+Among the implemented smoothing techniques, the **median filter** and **conservative filter** provided better balance between noise reduction and edge preservation, while the **mean** and **average** filters produced more blur. The **Gaussian filter** gave smooth and visually pleasing output for general smoothing applications.
+
+## Engineering Skills Demonstrated
+
+- MATLAB programming
+- digital image processing
+- spatial filtering
+- noise reduction analysis
+- image smoothing and enhancement
+- GUI-based application design
+- comparative analysis of filter performance
 
 ## Applications
 
-Image filtering is widely used in:
-
+This project is relevant to:
 - computer vision
 - medical imaging
-- satellite imagery
+- image preprocessing
+- satellite image analysis
 - object detection
-- image restoration
+- pattern recognition
 
-## Tools Used
+## Repository Structure
 
-- MATLAB
-- MATLAB GUIDE GUI
-
-## Author
-
-Disha Harwalkar
-
+```text
+image-processing-filters-matlab/
+│── README.md
+│── code/
+│   ├── mean_filter.m
+│   ├── median_filter.m
+│   ├── gaussian_filter.m
+│   └── GRAPHICALINTERFACE.m
+│── images/
+│   ├── gui_design.png
+│   ├── gaussian_filter_result.png
+│   ├── average_filter_result.png
+│   ├── median_mean_filter_result.png
+│   └── conservative_mean_result.png
