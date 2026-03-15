@@ -110,11 +110,14 @@ A GUI was created in MATLAB using GUIDE. The interface allows the user to:
 ### Average Filter
 ![Average Filter](images/average_filter_result.png)
 
-### Median and Mean Filter Results
-![Median and Mean Filter Results](images/median_mean_filter_result.png)
+### Median Filter
+![Median Filter](images/median_filter_result.png)
 
-### Conservative and Mean Filter Discussion
-![Conservative and Mean Filter Discussion](images/conservative_mean_result.png)
+### Mean Filter
+![Mean Filter](images/mean_filter_result.png)
+
+### Conservative Filter
+![Conservative Filter](images/conservative_filter_result.png)
 
 ## Comparative Analysis
 
